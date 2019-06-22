@@ -3,7 +3,7 @@
       <ion-buttons slot="start">
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Past launches</ion-title>
+      <ion-title>Missions</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -11,5 +11,20 @@
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <app-skeleton ></app-skeleton>
+    <div  *ngIf="missions">
+        <ion-list >
+          <ion-item-sliding *ngFor="let m of missions">
+            <ion-item button>
+              <ion-label>
+                <h2>{{m.mission_name}}</h2>
+                <p>{{m.mission_id}}</p>
+                <p>{{m.manufacturers}}</p>
+              </ion-label>
+                  <ion-chip outline="true" color="warning">
+                    <ion-label color="warning">{{m.payload_ids.length}} launches</ion-label>
+                  </ion-chip>
+            </ion-item>
+          </ion-item-sliding>
+        </ion-list>
+    </div>
   </ion-content>
