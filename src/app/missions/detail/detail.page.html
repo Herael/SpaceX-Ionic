@@ -1,9 +1,11 @@
 <ion-header>
     <ion-toolbar color="primary">
       <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+        <ion-back-button></ion-back-button>
       </ion-buttons>
-      <ion-title>Missions</ion-title>
+        <div  *ngIf="mission">
+            <ion-title>Missions : {{mission.mission_name}}</ion-title>
+        </div>
     </ion-toolbar>
   </ion-header>
   
@@ -12,8 +14,12 @@
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
     <div  *ngIf="mission">
-        <p>
-          {{mission.mission_name}}
-        </p>
+        <h1 class="mainTitle"><b>{{mission.mission_name}}</b></h1>
+
+      <h5 class="firstArgument">Mission ID : {{mission.mission_id}}</h5>
+      <h5 class="argument">Manufacturers : {{mission.manufacturers}}</h5>
+      <br>
+      <h5>Description : </h5>
+      <p class="description">{{mission.description}}</p>
     </div>
   </ion-content>
