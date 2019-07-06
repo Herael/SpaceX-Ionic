@@ -41,4 +41,12 @@ export class LaunchesService {
     );
   }
 
+  getNextUpcomingLaunch(): Observable<Launch> {
+    const requestEndpoint = this.apiBaseUrl + 'launches/upcoming?limit=1;order=desc';
+    return this.http.get<Launch[]>(requestEndpoint).pipe(
+        map(launches => {
+          return launches.length === 1 ? launches.shift() : null;
+        })
+    );
+  }
 }

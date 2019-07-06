@@ -22,5 +22,4 @@ export class UpcomingLaunchesPage implements OnInit {
       event.target.complete();
     });
   }
-
 }

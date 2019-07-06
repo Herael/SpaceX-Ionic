@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Launch } from 'src/app/models/launch.model';
 import { trigger, transition, style, animate } from '@angular/animations';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-launch',
