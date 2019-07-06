@@ -11,6 +11,11 @@ export class MenuPage implements OnInit {
   selectedPath: string;
   pages = [
     {
+      title: 'Home',
+      url: '/menu/home',
+      activated: true
+    },
+    {
       title: 'Launches',
       url: '/menu/launches',
       activated: true
@@ -25,11 +30,7 @@ export class MenuPage implements OnInit {
       url: '/menu/first',
       activated: true
     },
-    // {
-    //   title: 'Home',
-    //   url: '/menu/home',
-    //   activated: true
-    // },
+    
     // {
     //   title: 'Second Page blank',
     //   url: '/menu/second',

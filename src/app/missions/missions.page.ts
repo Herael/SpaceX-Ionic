@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Mission } from 'src/app/models/missions.model';
 import { MissionsService } from 'src/app/services/spacex-api/missions.service';
+import {Router,NavigationExtras} from '@angular/router';
 
 @Component({
   selector: 'app-missions',
@@ -10,7 +11,7 @@ import { MissionsService } from 'src/app/services/spacex-api/missions.service';
 
 export class MissionsPage implements OnInit {
 
-  constructor(private missionsService: MissionsService) { }
+  constructor(private router: Router,private missionsService: MissionsService) { }
   missions: Mission[];
 
 
@@ -25,4 +26,14 @@ export class MissionsPage implements OnInit {
       event.target.complete();
     });
   }
+
+  openDetailsWithState(mission) {
+    let navigationExtras: NavigationExtras = {
+      state: {
+        mission: mission
+      }
+    };
+    this.router.navigate(['detail'], navigationExtras);
+  }
+  
 }

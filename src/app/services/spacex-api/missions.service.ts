@@ -22,4 +22,9 @@ export class MissionsService {
       })
     );
   }
+
+  getMission(id): Observable<Mission> {
+    const requestEndpoint = this.apiBaseUrl + "missions/"+id;
+    return this.http.get<Mission>(requestEndpoint);
+  }
 }

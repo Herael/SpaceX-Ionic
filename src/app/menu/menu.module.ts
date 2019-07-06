@@ -29,7 +29,11 @@ const routes: Routes = [
       }, {
         path: 'second/details',
         loadChildren: '../details/details.module#DetailsPageModule'
-      }
+      },
+      {
+        path: 'detail',
+        loadChildren: '../missions/detail/detail.module#DetailpageModule'
+      },
     ]
   }
 ];

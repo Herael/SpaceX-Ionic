@@ -14,7 +14,7 @@
     <div  *ngIf="missions">
         <ion-list >
           <ion-item-sliding *ngFor="let m of missions">
-            <ion-item button>
+            <ion-item button (click)="openDetailsWithState(m)">
               <ion-label>
                 <h2>{{m.mission_name}}</h2>
                 <p>{{m.mission_id}}</p>

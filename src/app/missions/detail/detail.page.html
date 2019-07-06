@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+        <div  *ngIf="mission">
+            <ion-title>Missions : {{mission.mission_name}}</ion-title>
+        </div>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div  *ngIf="mission">
+        <h1 class="mainTitle"><b>{{mission.mission_name}}</b></h1>
+
+      <h5 class="firstArgument">Mission ID : {{mission.mission_id}}</h5>
+      <h5 class="argument">Manufacturers : {{mission.manufacturers}}</h5>
+      <br>
+      <h5>Description : </h5>
+      <p class="description">{{mission.description}}</p>
+    </div>
+  </ion-content>
