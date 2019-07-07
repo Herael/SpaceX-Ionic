@@ -30,4 +30,5 @@ const routes: Routes = [
   ],
   declarations: [MissionsPage]
 })
+
 export class MissionsPageModule {}

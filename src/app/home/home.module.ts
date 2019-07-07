@@ -22,4 +22,5 @@ import { ComponentsModule } from '../modules/components/components.module';
   ],
   declarations: [HomePage]
 })
-export class HomePageModule { }
+
+export class HomePageModule {}

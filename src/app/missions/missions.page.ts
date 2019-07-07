@@ -8,6 +8,7 @@ import {Router,NavigationExtras} from '@angular/router';
   templateUrl: './missions.page.html',
   styleUrls: ['./missions.page.scss'],
 })
+
 export class MissionsPage implements OnInit {
 
   constructor(private router: Router,private missionsService: MissionsService) { }

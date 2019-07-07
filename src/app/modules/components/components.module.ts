@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { SkeletonComponent } from 'src/app/components/skeleton/skeleton.component';
 import { IonicModule } from '@ionic/angular';
 import { LaunchComponent } from 'src/app/components/launch/launch.component';
+import {CountdownComponent} from '../../components/countdown/countdown.component';
 
 @NgModule({
   declarations: [
     SkeletonComponent,
-    LaunchComponent
+    LaunchComponent,
+    CountdownComponent
   ],
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { LaunchComponent } from 'src/app/components/launch/launch.component';
   ],
   exports: [
     SkeletonComponent,
-    LaunchComponent
+    LaunchComponent,
+    CountdownComponent
   ]
 })
 export class ComponentsModule { }
