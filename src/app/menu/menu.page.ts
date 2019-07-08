@@ -1,36 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, RouterEvent } from '@angular/router';
-import { NgProgress } from '@ngx-progressbar/core';
+import { Component, OnInit } from "@angular/core";
+import { Router, RouterEvent } from "@angular/router";
+import { NgProgress } from "@ngx-progressbar/core";
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.page.html',
-  styleUrls: ['./menu.page.scss'],
+  selector: "app-menu",
+  templateUrl: "./menu.page.html",
+  styleUrls: ["./menu.page.scss"]
 })
 export class MenuPage implements OnInit {
   selectedPath: string;
   pages = [
     {
-      title: 'Home',
-      url: '/menu/home',
+      title: "Home",
+      url: "/menu/home",
       activated: true
     },
     {
-      title: 'Launches',
-      url: '/menu/launches',
+      title: "Launches",
+      url: "/menu/launches",
       activated: true
     },
     {
-      title: 'Missions',
-      url: '/menu/missions',
+      title: "Missions",
+      url: "/menu/missions",
       activated: true
-    },
-    {
-      title: 'Demo',
-      url: '/menu/first',
-      activated: true
-    },
-    
+    }
+
     // {
     //   title: 'Second Page blank',
     //   url: '/menu/second',
@@ -46,7 +41,5 @@ export class MenuPage implements OnInit {
     });
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

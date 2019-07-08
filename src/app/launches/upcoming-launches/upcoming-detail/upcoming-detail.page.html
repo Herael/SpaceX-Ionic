@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div *ngIf="launch">
+      <ion-title
+        >Vol n°{{ launch.flight_number }} nom de la mission:
+        {{ launch.mission_name }}</ion-title
+      >
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <div *ngIf="launch">
+    <h1 style="text-align: center">
+      <b>{{ launch.mission_name }}</b>
+    </h1>
+
+    <h5 style="text-align: center">Date : {{ launch.launch_date_local }}</h5>
+    <br />
+    <h5 style="text-align: center">
+      Site du lancement: {{ launch.launch_site.site_name_long }}
+    </h5>
+    <h5 style="text-align: center">Fusée: {{ launch.rocket.rocket_name }}</h5>
+  </div>
+</ion-content>

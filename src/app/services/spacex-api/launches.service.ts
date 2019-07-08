@@ -1,21 +1,21 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { Launch } from 'src/app/models/launch.model';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { Launch } from "src/app/models/launch.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class LaunchesService {
   private apiBaseUrl: string;
 
   constructor(private http: HttpClient) {
-    this.apiBaseUrl = 'https://api.spacexdata.com/v3/';
-   }
+    this.apiBaseUrl = "https://api.spacexdata.com/v3/";
+  }
 
   getAllLaunches(): Observable<Launch[]> {
-    const requestEndpoint = this.apiBaseUrl + 'launches?order=desc';
+    const requestEndpoint = this.apiBaseUrl + "launches?order=desc";
     return this.http.get<Launch[]>(requestEndpoint).pipe(
       map(missions => {
         return missions;
@@ -24,7 +24,7 @@ export class LaunchesService {
   }
 
   getPastLaunches(): Observable<Launch[]> {
-    const requestEndpoint = this.apiBaseUrl + 'launches/past?order=desc';
+    const requestEndpoint = this.apiBaseUrl + "launches/past?order=desc";
     return this.http.get<Launch[]>(requestEndpoint).pipe(
       map(missions => {
         return missions;
@@ -33,7 +33,7 @@ export class LaunchesService {
   }
 
   getUpcomingLaunches(): Observable<Launch[]> {
-    const requestEndpoint = this.apiBaseUrl + 'launches/upcoming?order=desc';
+    const requestEndpoint = this.apiBaseUrl + "launches/upcoming?order=desc";
     return this.http.get<Launch[]>(requestEndpoint).pipe(
       map(missions => {
         return missions;
@@ -42,11 +42,17 @@ export class LaunchesService {
   }
 
   getNextUpcomingLaunch(): Observable<Launch> {
-    const requestEndpoint = this.apiBaseUrl + 'launches/upcoming?limit=1;order=desc';
+    const requestEndpoint =
+      this.apiBaseUrl + "launches/upcoming?limit=1;order=desc";
     return this.http.get<Launch[]>(requestEndpoint).pipe(
-        map(launches => {
-          return launches.length === 1 ? launches.shift() : null;
-        })
+      map(launches => {
+        return launches.length === 1 ? launches.shift() : null;
+      })
     );
+  }
+
+  getLaunch(id): Observable<Launch> {
+    const requestEndpoint = this.apiBaseUrl + "launches/" + id;
+    return this.http.get<Launch>(requestEndpoint);
   }
 }

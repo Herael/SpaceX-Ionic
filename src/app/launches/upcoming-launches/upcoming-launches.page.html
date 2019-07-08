@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Upcoming launches</ion-title>
+    <ion-title> 🚀 Upcoming launches</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,5 +12,38 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <app-skeleton *ngIf="!launches"></app-skeleton>
-  <app-launch [launches]="launches"></app-launch>
+  <ion-list>
+    <ion-item-sliding *ngFor="let l of launches">
+      <ion-item-options side="start">
+        <ion-item-option>Favorite</ion-item-option>
+      </ion-item-options>
+      <ion-item button (click)="openDetailsWithState(l)">
+        <ion-thumbnail slot="start">
+          <ion-text *ngIf="!l.links.mission_patch" class="underline-magical">{{
+            l.flight_number
+          }}</ion-text>
+          <img *ngIf="l.links.mission_patch" [src]="l.links.mission_patch" />
+        </ion-thumbnail>
+        <ion-label class="d-inline">
+          <h2>{{ l.mission_name }}</h2>
+          <p>{{ l.launch_site.site_name }}</p>
+          <p>{{ l.rocket.rocket_name }}</p>
+        </ion-label>
+        <ion-note slot="end">
+          <div class="d-flex flex-column">
+            {{ l.launch_date_utc | date: "short" }}
+            <ng-container *ngIf="l.launch_success !== null">
+              <ion-chip
+                outline="true"
+                color="success"
+                *ngIf="l.launch_success; else launch_failure"
+              >
+                <ion-label color="success">Success</ion-label>
+              </ion-chip>
+            </ng-container>
+          </div>
+        </ion-note>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>

@@ -33,6 +33,7 @@
     "cordova-plugin-network-information": "2.0.1",
     "core-js": "^2.6.9",
     "firebase": "^5.11.0",
+    "ionic": "^5.2.1",
     "rxjs": "^6.5.2",
     "rxjs-compat": "^6.5.2",
     "tslib": "^1.10.0",

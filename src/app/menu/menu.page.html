@@ -8,8 +8,12 @@
     <ion-content>
       <ion-list>
         <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
-          <ion-item *ngIf="p.activated" [routerLink]="p.url" routerDirection="root"
-            [class.active-item]="selectedPath.startsWith(p.url)">
+          <ion-item
+            *ngIf="p.activated"
+            [routerLink]="p.url"
+            routerDirection="root"
+            [class.active-item]="selectedPath.startsWith(p.url)"
+          >
             <ion-label>
               <!-- <ion-icon name="quote" slot="start"></ion-icon> -->
               {{ p.title }}
@@ -17,20 +21,7 @@
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
-
-      <div class="fixed-bottom">
-        <ion-item tappable routerLink="/login" routerDirection="root">
-          <!-- <ion-icon name="close" slot="start"></ion-icon> -->
-          Logout
-        </ion-item>
-        <ion-item tappable>
-          <ion-label>
-            <div>settings</div>
-          </ion-label>
-        </ion-item>
-      </div>
     </ion-content>
   </ion-menu>
-  <ion-router-outlet id="content" main>
-  </ion-router-outlet>
+  <ion-router-outlet id="content" main> </ion-router-outlet>
 </ion-split-pane>
