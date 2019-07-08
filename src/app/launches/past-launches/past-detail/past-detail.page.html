@@ -22,7 +22,9 @@
     </h1>
 
     <h5 style="text-align: center">Date : {{ launch.launch_date_local }}</h5>
-    <img src="{{ launch.links.mission_patch }}" />
+    <div style="text-align: center">
+      <img src="{{ launch.links.mission_patch }}" style="max-width: 25em"/>
+    </div>
     <br />
     <h5>Description :</h5>
     <p class="description">{{ launch.details }}</p>
