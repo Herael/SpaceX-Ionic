@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: 'detail', loadChildren: './launches/past-launches/detail/detail.module#DetailPageModule' },
   { path: 'past-detail', loadChildren: './launches/past-launches/past-detail/past-detail.module#PastDetailPageModule' },
-  { path: 'upcoming-detail', loadChildren: './launches/upcoming-launches/upcoming-detail/upcoming-detail.module#UpcomingDetailPageModule' }
+  { path: 'upcoming-detail', loadChildren: './lau©nches/upcoming-launches/upcoming-detail/upcoming-detail.module#UpcomingDetailPageModule' }
 
 ];
 

@@ -3,13 +3,13 @@
 
 /** Ionic CSS Variables **/
 :root {
-  --ion-font-family: 'Roboto';
+  --ion-font-family: '../assets/fonts/spaceAge.ttf';
   font-size: 80%;
   --ion-background-color: #303030;
   --ion-text-color: #ffffff;
   pre {
     // color: #ffffff;
-    font-family: 'DinoFont';
+    font-family: '../assets/fonts/spaceAge.ttf';
     font-size: 80%;
    }
 
@@ -92,8 +92,8 @@
 }
 
 @font-face {
-  font-family: 'DinoFont';
+  font-family: '../assets/fonts/spaceAge.ttf';
   font-style: normal;
   font-weight: normal;
-  src: url('../assets/fonts/PFDinMono.ttf');
+  src: url('../assets/fonts/spaceAge.ttf');
 }
