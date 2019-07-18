@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      🚀 Events history
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="groupedEvents$ | async as groupedEvents">
+    <div *ngFor="let group of groupedEvents | keyvalue: keyDescOrder">
+      <ng-container *ngIf="group.value as events" [ngTemplateOutlet]="event"
+        [ngTemplateOutletContext]="{events : events}">
+      </ng-container>
+    </div>
+  </ng-container>
+</ion-content>
+
+
+<ng-template #event let-events="events">
+  <ion-card *ngFor="let event of events">
+    <ion-card-header>
+      <ion-card-title color="secondary">{{event.title}}</ion-card-title>
+      <ion-card-subtitle>{{event.event_date_utc | date}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{event.details}}</p>
+      <ion-row class="pt-3 d-flex ">
+        <div class="mr-auto">
+          <ion-row>
+            <a href="{{ event.links.article }}"
+      ><img style="width: 50px;" src="http://aux2.iconspalace.com/uploads/wordpress-flat-circle-icon-256.png" />
+  </a>
+  <a href="{{ event.links.wikipedia }}"
+    ><img style="width: 50px;" src="https://cdn2.iconfinder.com/data/icons/social-media-with-original-colors/256/icon-wikipedia.png" />
+  </a>
+  <a href="{{ event.links.reddit }}"
+    ><img style="width: 50px;" src="https://images.vexels.com/media/users/3/131899/isolated/lists/a17b58a4599c50b642b2ab49b7691974-reddit-ring-icon.png" />
+  </a>
+          </ion-row>
+        </div>
+        <ion-button *ngIf="event.flight_number" color="warning" expand="block" fill="outline" size="small"
+        (click)="openDetailsWithState(event.flight_number)" routerDirection="forward">
+        
+          Launch
+          <ion-icon class="pl-2" name="arrow-forward"></ion-icon>
+        </ion-button>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ng-template>

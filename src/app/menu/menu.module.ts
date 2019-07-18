@@ -31,6 +31,10 @@ const routes: Routes = [
         loadChildren: '../details/details.module#DetailsPageModule'
       },
       {
+        path: 'history',
+        loadChildren: '../history/historical-events/historical-events.module#HistoricalEventsPageModule'
+      }, 
+      {
         path: 'detail',
         loadChildren: '../missions/detail/detail.module#DetailpageModule'
       },

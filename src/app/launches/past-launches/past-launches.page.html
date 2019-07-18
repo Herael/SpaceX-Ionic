@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title> 🚀 Past launches</ion-title>
+    <ion-title> 🚀 Past launches <ion-badge *ngIf="launches" color="warning">{{launches.length}}</ion-badge></ion-title>
   </ion-toolbar>
 </ion-header>
 

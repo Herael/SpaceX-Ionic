@@ -24,6 +24,10 @@ export class MenuPage implements OnInit {
       title: "Missions",
       url: "/menu/missions",
       activated: true
+    },{
+      title: "History",
+      url: "/menu/history",
+      activated: true
     }
 
     // {

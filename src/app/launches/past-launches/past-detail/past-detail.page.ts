@@ -16,21 +16,37 @@ export class PastDetailPage implements OnInit {
     private router: Router,
     private launchService: LaunchesService
   ) {
+    console.log("extra",this.router.getCurrentNavigation().extras.state.launch);
+    console.log(this.router.getCurrentNavigation().extras.state.test);
+    
     this.data = this.router.getCurrentNavigation().extras.state.launch;
-    console.log(this.data);
+    console.log("data",this.data);
   }
 
   ngOnInit() {
-    console.log(this.data.flight_number);
-
-    this.launchService.getLaunch(this.data.flight_number).subscribe(result => {
-      this.launch = result;
-    });
+    console.log("test",this.data.flight_number);
+      if (this.data.flight_number){
+        this.launchService.getLaunch(this.data.flight_number).subscribe(result => {
+          this.launch = result;
+        });
+      }else{
+        this.launchService.getLaunch(this.data).subscribe(result => {
+          this.launch = result;
+      });
+    }
+    
   }
   doRefresh(event: any) {
-    this.launchService.getLaunch(this.data.flight_number).subscribe(result => {
-      this.launch = result;
-      event.target.complete();
-    });
+    if (this.data.flight_number){
+      this.launchService.getLaunch(this.data.flight_number).subscribe(result => {
+        this.launch = result;
+        event.target.complete();
+      });
+    }else{
+        this.launchService.getLaunch(this.data).subscribe(result => {
+          this.launch = result;
+          event.target.complete();
+      });
   }
+}
 }

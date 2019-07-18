@@ -2,22 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
+import { HistoricalEventsPage } from './historical-events.page';
 import { IonicModule } from '@ionic/angular';
-import { ComponentsModule } from '../modules/components/components.module';
-import { Tab2Page } from './tab2.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: Tab2Page,
     children: [
       {
-        path: 'second/details',
-        loadChildren: '../details/details.module#DetailsPageModule'
-      }
+        path: '',
+        component: HistoricalEventsPage
+      },
+      
+      
     ]
-  },
+  }
 ];
 
 @NgModule({
@@ -25,9 +24,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ComponentsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [Tab2Page]
+  declarations: [HistoricalEventsPage]
 })
-export class Tab2PageModule {}
+export class HistoricalEventsPageModule { }
